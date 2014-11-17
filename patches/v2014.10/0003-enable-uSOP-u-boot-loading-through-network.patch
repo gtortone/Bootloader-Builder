@@ -1,12 +1,12 @@
-From 727b39f8afc6306f84dc112a55c625dd864b24a0 Mon Sep 17 00:00:00 2001
+From 125d399d41ae8c2b7e30ee56d098bc82ef4ca935 Mon Sep 17 00:00:00 2001
 From: Gennaro Tortone <gennaro.tortone@na.infn.it>
-Date: Wed, 12 Nov 2014 20:43:16 +0100
-Subject: [PATCH] enable uSOP u-boot loading through network
+Date: Mon, 17 Nov 2014 08:16:12 +0100
+Subject: [PATCH] fixed dhcp rootpath
 
 ---
  include/configs/am335x_evm.h       |   48 ++++-------------------------------
- include/configs/ti_am335x_common.h |    8 ++++++
- 2 files changed, 14 insertions(+), 42 deletions(-)
+ include/configs/ti_am335x_common.h |    9 ++++++
+ 2 files changed, 15 insertions(+), 42 deletions(-)
 
 diff --git a/include/configs/am335x_evm.h b/include/configs/am335x_evm.h
 index b9b75db..505e7b2 100644
@@ -103,10 +103,18 @@ index b9b75db..505e7b2 100644
  /* NS16550 Configuration */
  #define CONFIG_SYS_NS16550_COM1		0x44e09000	/* Base EVM has UART0 */
 diff --git a/include/configs/ti_am335x_common.h b/include/configs/ti_am335x_common.h
-index 80976e7..86b2791 100644
+index 80976e7..f5113d7 100644
 --- a/include/configs/ti_am335x_common.h
 +++ b/include/configs/ti_am335x_common.h
-@@ -67,6 +67,14 @@
+@@ -36,6 +36,7 @@
+ #define CONFIG_BOOTP_SEND_HOSTNAME
+ #define CONFIG_BOOTP_GATEWAY
+ #define CONFIG_BOOTP_SUBNETMASK
++#define CONFIG_BOOTP_BOOTPATH
+ #define CONFIG_NET_RETRY_COUNT         10
+ #define CONFIG_CMD_PING
+ #define CONFIG_DRIVER_TI_CPSW		/* Driver for IP block */
+@@ -67,6 +68,14 @@
  /* Enable the watchdog inside of SPL */
  #define CONFIG_SPL_WATCHDOG_SUPPORT
  
